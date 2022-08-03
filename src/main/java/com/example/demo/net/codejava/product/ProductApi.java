@@ -21,7 +21,7 @@ public class ProductApi {
 	@Autowired private ProductRepository repo;
 	
 	@PostMapping
-	@RolesAllowed("ROLE_ONBOARDING_REVIEWER")
+	@RolesAllowed("ROLE_ONBOARDING_REVIEWER,ROLE_ONBOARDING_MANAGER")
 	public ResponseEntity<Product> create(@RequestBody @Valid Product product) {
 		Product savedProduct = repo.save(product);
 		URI productURI = URI.create("/products/" + savedProduct.getId());
@@ -29,7 +29,7 @@ public class ProductApi {
 	}
 	
 	@GetMapping
-	@RolesAllowed({"ROLE_ONBOARDING_REVIEWER", "ROLE_ASSOCIATE"})
+	@RolesAllowed({"ROLE_ONBOARDING_REVIEWER", "ROLE_ASSOCIATE","ROLE_ONBOARDING_MANAGER"})
 	public List<Product> list() {
 		return repo.findAll();
 	}

@@ -22,12 +22,14 @@ public class RoleRepositoryTests {
 	public void testCreateRoles() {
 		Role associate = new Role("ROLE_ASSOCIATE");
 		Role onboarding_reviewer = new Role("ROLE_ONBOARDING_REVIEWER");
+		Role onboarding_manager = new Role("ROLE_ONBOARDING_MANAGER");
 		List<Role> ls=new ArrayList<Role>();
 		ls.add(associate);
 		ls.add(onboarding_reviewer);
+		ls.add(onboarding_manager);
 		repo.saveAll(ls);
 		
 		long count = repo.count();
-		assertEquals(2, count);
+		assertEquals(3, count);
 	}
 }

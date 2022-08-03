@@ -32,7 +32,7 @@ public class JwtTokenUtil {
 		
 		return Jwts.builder()
 				.setSubject(String.format("%s,%s", user.getId(), user.getEmail()))
-				.setIssuer("CodeJava")
+				.setIssuer("Onboarding Team IBM Prudential")
 				.claim("roles", user.getRoles().toString())
 				.setIssuedAt(new Date())
 				.setExpiration(new Date(System.currentTimeMillis() + EXPIRE_DURATION))

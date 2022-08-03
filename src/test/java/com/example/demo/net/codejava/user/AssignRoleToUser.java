@@ -19,8 +19,8 @@ public class AssignRoleToUser {
 	
 	@Test 
 	  public void testAssignRoleToUser() { 
-		  Integer userId = 8; 
-		  Integer roleId = 8; 
+		  Integer userId = 11; 
+		  Integer roleId = 13;
 		  User user = repo.findById(userId).get(); 
 		  user.addRole(new Role(roleId));
 	  
