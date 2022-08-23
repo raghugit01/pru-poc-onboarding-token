@@ -1,4 +1,4 @@
-package com.example.demo.net.codejava.user.api;
+package com.pru.token.app.user.api;
 
 import javax.validation.Valid;
 
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.net.codejava.jwt.JwtTokenUtil;
-import com.example.demo.net.codejava.user.User;
+import com.pru.token.app.jwt.JwtTokenUtil;
+import com.pru.token.app.user.User;
 
 @RestController
 public class AuthApi {

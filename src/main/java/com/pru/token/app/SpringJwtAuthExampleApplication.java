@@ -1,4 +1,4 @@
-package com.example.demo.net.codejava;
+package com.pru.token.app;
 /*
  * package net.codejava;
  * 

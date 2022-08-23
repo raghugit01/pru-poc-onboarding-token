@@ -1,15 +1,13 @@
-package com.example.demo.net.codejava.jwt;
+package com.pru.token.app.jwt;
 
 import java.util.Date;
-import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import com.example.demo.net.codejava.user.Role;
-import com.example.demo.net.codejava.user.User;
+import com.pru.token.app.user.User;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -33,7 +31,7 @@ public class JwtTokenUtil {
 		return Jwts.builder()
 				.setSubject(String.format("%s,%s", user.getId(), user.getEmail()))
 				.setIssuer("Onboarding Team IBM Prudential")
-				.claim("roles", user.getRoles().toString())
+				.claim("roles", user.getRole().toString())
 				.setIssuedAt(new Date())
 				.setExpiration(new Date(System.currentTimeMillis() + EXPIRE_DURATION))
 				.signWith(SignatureAlgorithm.HS512, SECRET_KEY)

@@ -1,4 +1,4 @@
-package com.example.demo.net.codejava.user.api;
+package com.pru.token.app.user.api;
 
 public class AuthResponse {
 	private String email;

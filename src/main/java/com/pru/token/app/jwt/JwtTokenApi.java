@@ -1,4 +1,4 @@
-package com.example.demo.net.codejava.jwt;
+package com.pru.token.app.jwt;
 
 import java.util.HashMap;
 import java.util.Map;

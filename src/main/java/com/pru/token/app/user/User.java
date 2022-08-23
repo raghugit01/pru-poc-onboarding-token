@@ -1,4 +1,4 @@
-package com.example.demo.net.codejava.user;
+package com.pru.token.app.user;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 
@@ -36,13 +37,21 @@ public class User implements UserDetails {
 	@Length(min = 5, max = 64)
 	private String password;
 
-	@ManyToMany
+//	@ManyToMany
+//	@JoinTable(
+//		name = "users_roles",
+//		joinColumns = @JoinColumn(name = "user_id"),
+//		inverseJoinColumns = @JoinColumn(name = "role_id")
+//	)
+//	private Set<Role> roles = new HashSet<>();
+	
+	@OneToOne
 	@JoinTable(
 		name = "users_roles",
 		joinColumns = @JoinColumn(name = "user_id"),
 		inverseJoinColumns = @JoinColumn(name = "role_id")
 	)
-	private Set<Role> roles = new HashSet<>();
+	private Role role;
 	
 	public User() { }
 	
@@ -78,9 +87,7 @@ public class User implements UserDetails {
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-		for (Role role : roles) {
-			authorities.add(new SimpleGrantedAuthority(role.getName()));
-		}
+		authorities.add(new SimpleGrantedAuthority(role.getName()));
 		return authorities;
 	}
 
@@ -109,16 +116,11 @@ public class User implements UserDetails {
 		return true;
 	}
 
-	public Set<Role> getRoles() {
-		return roles;
+	public Role getRole() {
+		return role;
 	}
 
-	public void setRoles(Set<Role> roles) {
-		this.roles = roles;
+	public void setRole(Role role) {
+		this.role = role;
 	}
-	
-	public void addRole(Role role) {
-		this.roles.add(role);
-	}
-	
 }

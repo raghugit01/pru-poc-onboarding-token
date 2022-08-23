@@ -1,4 +1,4 @@
-package com.example.demo.net.codejava.user;
+package com.pru.token.app.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

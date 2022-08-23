@@ -1,4 +1,4 @@
-package com.example.demo.net.codejava;
+package com.pru.token.app;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,8 +16,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.example.demo.net.codejava.jwt.JwtTokenFilter;
-import com.example.demo.net.codejava.user.UserRepository;
+import com.pru.token.app.jwt.JwtTokenFilter;
+import com.pru.token.app.user.UserRepository;
 
 @EnableWebSecurity(debug = true)
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)

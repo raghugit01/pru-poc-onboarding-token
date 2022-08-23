@@ -1,4 +1,4 @@
-package com.example.demo.net.codejava.user.api;
+package com.pru.token.app.user.api;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
@@ -6,10 +6,10 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
 public class AuthRequest {
-	@NotNull @Email @Length(min = 5, max = 50)
+	@NotNull @Email 
 	private String email;
 	
-	@NotNull @Length(min = 5, max = 10)
+	@NotNull 
 	private String password;
 
 	public AuthRequest() {

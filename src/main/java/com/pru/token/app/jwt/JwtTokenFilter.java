@@ -1,4 +1,4 @@
-package com.example.demo.net.codejava.jwt;
+package com.pru.token.app.jwt;
 
 import java.io.IOException;
 
@@ -16,8 +16,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.example.demo.net.codejava.user.Role;
-import com.example.demo.net.codejava.user.User;
+import com.pru.token.app.user.Role;
+import com.pru.token.app.user.User;
 
 import io.jsonwebtoken.Claims;
 
@@ -84,7 +84,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
 		String[] roleNames = roles.split(",");
 		
 		for (String aRoleName : roleNames) {
-			userDetails.addRole(new Role(aRoleName));
+			userDetails.setRole(new Role(aRoleName));
 		}
 		
 		String[] jwtSubject = subject.split(",");

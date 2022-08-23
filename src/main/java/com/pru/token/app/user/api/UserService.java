@@ -1,4 +1,4 @@
-package com.example.demo.net.codejava.user.api;
+package com.pru.token.app.user.api;
 
 import javax.transaction.Transactional;
 
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.net.codejava.user.User;
-import com.example.demo.net.codejava.user.UserRepository;
+import com.pru.token.app.user.User;
+import com.pru.token.app.user.UserRepository;
 
 @Service
 @Transactional

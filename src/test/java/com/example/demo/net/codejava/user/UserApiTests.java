@@ -16,6 +16,7 @@ import org.springframework.test.web.servlet.ResultActions;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.pru.token.app.user.User;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -26,8 +27,8 @@ public class UserApiTests {
 	
 	@Test
 	public void shouldCreateUser() throws JsonProcessingException, Exception {
-		String email = "dave.Kumar@gmail.com";
-		String password = "dave2022";
+		String email = "azaz@ibm.com";
+		String password = "abc";
 		User newUser = new User(email, password);
 		
 		ResultActions resultActions = mockMvc.perform(put("/users")

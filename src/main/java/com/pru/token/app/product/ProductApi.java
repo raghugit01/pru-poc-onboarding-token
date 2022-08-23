@@ -1,4 +1,4 @@
-package com.example.demo.net.codejava.product;
+package com.pru.token.app.product;
 
 import java.net.URI;
 import java.util.List;
