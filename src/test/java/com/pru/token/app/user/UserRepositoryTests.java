@@ -1,4 +1,4 @@
-package com.example.demo.net.codejava.user;
+package com.pru.token.app.user;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -9,9 +9,6 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.annotation.Rollback;
-
-import com.pru.token.app.user.User;
-import com.pru.token.app.user.UserRepository;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
@@ -26,7 +23,7 @@ public class UserRepositoryTests {
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		String password = passwordEncoder.encode("abc"); 
 
-		User newUser = new User("associate@ibm.com", password);
+		User newUser = new User("manager@ibm.com", password,"005EMS");
 		User savedUser = repo.save(newUser);
 
 		assertThat(savedUser).isNotNull();

@@ -2,9 +2,7 @@ package com.pru.token.app.user;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
@@ -32,6 +29,15 @@ public class User implements UserDetails {
 	@Column(nullable = false, length = 50, unique = true)
 	@Email @Length(min = 5, max = 50)
 	private String email;
+	
+	@Column(nullable = false, length = 9, unique = true)
+	private String employeeId;
+	
+	private String reviewerName;
+	
+	private String managerName;
+	
+	private String userName;
 	
 	@Column(nullable = false, length = 64)
 	@Length(min = 5, max = 64)
@@ -58,6 +64,12 @@ public class User implements UserDetails {
 	public User(String email, String password) {
 		this.email = email;
 		this.password = password;
+	}
+	
+	public User(String email, String password, String employeeId) {
+		this.email = email;
+		this.password = password;
+		this.employeeId = employeeId;
 	}
 
 	public Integer getId() {
@@ -123,4 +135,43 @@ public class User implements UserDetails {
 	public void setRole(Role role) {
 		this.role = role;
 	}
+
+	public String getEmployeeId() {
+		return employeeId;
+	}
+
+	public void setEmployeeId(String employeeId) {
+		this.employeeId = employeeId;
+	}
+
+	public String getReviewerName() {
+		return reviewerName;
+	}
+
+	public void setReviewerName(String reviewerName) {
+		this.reviewerName = reviewerName;
+	}
+
+	public String getManagerName() {
+		return managerName;
+	}
+
+	public void setManagerName(String managerName) {
+		this.managerName = managerName;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", email=" + email + ", employeeId=" + employeeId + ", reviewerName=" + reviewerName
+				+ ", managerName=" + managerName + ", password=" + password + ", role=" + role + "]";
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	
 }

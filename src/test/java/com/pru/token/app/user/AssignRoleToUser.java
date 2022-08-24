@@ -1,4 +1,4 @@
-package com.example.demo.net.codejava.user;
+package com.pru.token.app.user;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -8,10 +8,6 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
-
-import com.pru.token.app.user.Role;
-import com.pru.token.app.user.User;
-import com.pru.token.app.user.UserRepository;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
@@ -23,8 +19,8 @@ public class AssignRoleToUser {
 	
 	@Test 
 	  public void testAssignRoleToUser() { 
-		  Integer userId = 4; 
-		  Integer roleId = 1;
+		  Integer userId = 1; 
+		  Integer roleId = 3;
 		  Role role=new Role(roleId);
 		  User user = repo.findById(userId).get(); 
 		  user.setRole(role);
