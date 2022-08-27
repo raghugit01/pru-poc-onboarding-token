@@ -24,8 +24,8 @@ public class AuthenticatedUser {
 	@Autowired
 	private UserRepository repository;
 
-	public LoginUserResponse getUser(String id) {
-		Optional<User> optional=repository.findByEmployeeId(id);
+	public LoginUserResponse getUser(LoginUserRequest req) {
+		Optional<User> optional=repository.findByEmployeeId(req.getEmpId());
 		LoginUserResponse response=new LoginUserResponse();
 		if (optional.isPresent()) {
 			User request=optional.get();
@@ -33,7 +33,7 @@ public class AuthenticatedUser {
 			try {
 				Authentication authentication = authManager.authenticate(
 						new UsernamePasswordAuthenticationToken(
-								request.getEmail(), "abc")
+								request.getEmail(), req.getPassword())
 				);
 				
 				User user = (User) authentication.getPrincipal();
@@ -49,7 +49,7 @@ public class AuthenticatedUser {
 				System.out.println("in exception "+e.getMessage());
 			}
 		}else {
-			System.out.println("user not tere "+id);
+			System.out.println("user not tere "+req.getEmpId());
 		}
 		return response;
 	}
