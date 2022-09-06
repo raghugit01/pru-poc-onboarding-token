@@ -2,18 +2,11 @@ server:
   port: 9099
   
 spring:
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-       dialect = org.hibernate.dialect.PostgreSQLDialect
-  datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: postgres
-    password: admin
-    driverClassName: org.postgresql.Driver
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: mydb
   application:
     name: TOKEN-SERVICE
   config:
@@ -45,4 +38,17 @@ eureka:
 #  instance:
 #    hostname: localhost
    
+   
+#jpa:
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: update
+#    properties:
+#      hibernate:
+#       dialect = org.hibernate.dialect.PostgreSQLDialect
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/postgres
+#    username: postgres
+#    password: admin
+#    driverClassName: org.postgresql.Driver   
   
