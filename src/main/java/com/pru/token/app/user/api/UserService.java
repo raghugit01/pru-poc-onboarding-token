@@ -1,7 +1,5 @@
 package com.pru.token.app.user.api;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -10,7 +8,6 @@ import com.pru.token.app.user.User;
 import com.pru.token.app.user.UserRepository;
 
 @Service
-@Transactional
 public class UserService {
 	@Autowired private UserRepository repo;
 	@Autowired private PasswordEncoder passwordEncoder;

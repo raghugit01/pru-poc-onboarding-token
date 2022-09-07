@@ -4,33 +4,24 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.validation.constraints.Email;
-
-import org.hibernate.validator.constraints.Length;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-@Entity
-@Table(name = "users")
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@AllArgsConstructor
+@Data
+@Document(collection = "user")
 public class User implements UserDetails {
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id 
 	private Integer id;
 	
-	@Column(nullable = false, length = 50, unique = true)
-	@Email @Length(min = 5, max = 50)
 	private String email;
 	
-	@Column(nullable = false, length = 9, unique = true)
 	private String employeeId;
 	
 	private String reviewerName;
@@ -39,24 +30,8 @@ public class User implements UserDetails {
 	
 	private String userName;
 	
-	@Column(nullable = false, length = 64)
-	@Length(min = 5, max = 64)
 	private String password;
 
-//	@ManyToMany
-//	@JoinTable(
-//		name = "users_roles",
-//		joinColumns = @JoinColumn(name = "user_id"),
-//		inverseJoinColumns = @JoinColumn(name = "role_id")
-//	)
-//	private Set<Role> roles = new HashSet<>();
-	
-	@OneToOne
-	@JoinTable(
-		name = "users_roles",
-		joinColumns = @JoinColumn(name = "user_id"),
-		inverseJoinColumns = @JoinColumn(name = "role_id")
-	)
 	private Role role;
 	
 	public User() { }
