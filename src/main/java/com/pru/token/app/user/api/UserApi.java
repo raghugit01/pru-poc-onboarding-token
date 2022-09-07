@@ -1,12 +1,14 @@
 package com.pru.token.app.user.api;
 
 import java.net.URI;
+import java.util.List;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -62,5 +64,10 @@ public class UserApi {
 	public ResponseEntity<?> createRole(@RequestBody Role role){
 		roleRepository.save(role);
 		return ResponseEntity.ok(role);
+	}
+	
+	@GetMapping("/roles")
+	public List<Role> getRoles(){
+		return roleRepository.findAll();
 	}
 }
