@@ -15,9 +15,9 @@ public class RequestUser {
 	
 	private String employeeId;
 	
-	private String reviewerName;
+	private String reviewerEmpId;
 	
-	private String managerName;
+	private String managerEmpId;
 	
 	private String userName;
 	
