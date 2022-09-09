@@ -12,7 +12,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.ToString;
 
+@ToString
 @AllArgsConstructor
 @Data
 @Document(collection = "user")
@@ -24,15 +26,15 @@ public class User implements UserDetails {
 	
 	private String employeeId;
 	
-	private String reviewerName;
-	
-	private String managerName;
-	
 	private String userName;
 	
 	private String password;
 
 	private Role role;
+	
+	private Reviewer reviewer;
+	
+	private Manager manager;
 	
 	public User() { }
 	
@@ -45,30 +47,6 @@ public class User implements UserDetails {
 		this.email = email;
 		this.password = password;
 		this.employeeId = employeeId;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	@Override
@@ -103,50 +81,12 @@ public class User implements UserDetails {
 		return true;
 	}
 
-	public Role getRole() {
-		return role;
-	}
-
-	public void setRole(Role role) {
-		this.role = role;
-	}
-
-	public String getEmployeeId() {
-		return employeeId;
-	}
-
-	public void setEmployeeId(String employeeId) {
-		this.employeeId = employeeId;
-	}
-
-	public String getReviewerName() {
-		return reviewerName;
-	}
-
-	public void setReviewerName(String reviewerName) {
-		this.reviewerName = reviewerName;
-	}
-
-	public String getManagerName() {
-		return managerName;
-	}
-
-	public void setManagerName(String managerName) {
-		this.managerName = managerName;
-	}
-
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", email=" + email + ", employeeId=" + employeeId + ", reviewerName=" + reviewerName
-				+ ", managerName=" + managerName + ", password=" + password + ", role=" + role + "]";
-	}
-
 	public String getUserName() {
 		return userName;
 	}
-
+	
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	
+		
 }

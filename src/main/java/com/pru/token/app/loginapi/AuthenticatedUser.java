@@ -39,9 +39,9 @@ public class AuthenticatedUser {
 				User user = (User) authentication.getPrincipal();
 				String accessToken = jwtUtil.generateAccessToken(user);
 				response.setEmail(user.getEmail());
-				response.setManager(user.getManagerName());
+				response.setManager(user.getManager());
 				response.setName(user.getUserName());
-				response.setReviewer(user.getReviewerName());
+				response.setReviewer(user.getReviewer());
 				response.setRole(user.getRole().getName());
 				response.setToken(accessToken);
 				response.setUserId(user.getEmployeeId());				
