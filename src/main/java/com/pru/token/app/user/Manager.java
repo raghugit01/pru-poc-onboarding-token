@@ -13,9 +13,31 @@ import lombok.NoArgsConstructor;
 @Document(collection = "manager")
 public class Manager {
 	
-	@Id	
 	private String empId;
 	
 	private String managerName;
+
+	public Manager() {	}
+
+	public String getEmpId() {
+		return empId;
+	}
+
+	public void setEmpId(String empId) {
+		this.empId = empId;
+	}
+
+	public String getManagerName() {
+		return managerName;
+	}
+
+	public void setManagerName(String managerName) {
+		this.managerName = managerName;
+	}
+
+	@Override
+	public String toString() {
+		return "Manager [empId=" + empId + ", managerName=" + managerName + "]";
+	}
 
 }

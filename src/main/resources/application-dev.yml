@@ -4,9 +4,7 @@ server:
 spring:
   data:
     mongodb:
-      host: localhost
-      port: 27017
-      database: mydb
+      uri: mongodb+srv://root:WBJsDZphl9loQGt4@mongodb.lqmn4.mongodb.net/onboarding-prudential?retryWrites=true&w=majority
   application:
     name: TOKEN-SERVICE
   config:

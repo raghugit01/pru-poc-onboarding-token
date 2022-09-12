@@ -57,8 +57,8 @@ public class UserApi {
 	@PostMapping("/user_add")
 	public ResponseEntity<?> addUser(@RequestBody RequestUser requestUser){
 		Role rolei = roleRepository.findById(requestUser.getRoleId()).get();
-		Manager manager = managerRepository.findById(requestUser.getManagerEmpId()).get();
-		Reviewer reviewer = reviewerRepository.findById(requestUser.getReviewerEmpId()).get();
+		Manager manager = managerRepository.findByEmpId(requestUser.getManagerEmpId());
+		Reviewer reviewer = reviewerRepository.findByEmpId(requestUser.getReviewerEmpId());
 		
 		User user=new User();
 		user.setEmail(requestUser.getEmail());
