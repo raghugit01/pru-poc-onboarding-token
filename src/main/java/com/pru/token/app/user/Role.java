@@ -12,26 +12,20 @@ import lombok.NoArgsConstructor;
 @Data
 @Document(collection = "role")
 public class Role {
-	@Id 
-	private Integer id;
+
+	private String id;
 	
 	private String name;
 
-	
 	public Role(String name) {
 		this.name = name;
 	}
-	
-	public Role(Integer id) {
-		super();
-		this.id = id;
-	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
