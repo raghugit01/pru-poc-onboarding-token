@@ -45,7 +45,7 @@ public class UserApi {
 	private ReviewerRepository reviewerRepository;
 	
 	@PutMapping("/users")
-	public ResponseEntity<?> createUser(@RequestBody @Valid User user) {
+	public ResponseEntity<UserDTO> createUser(@RequestBody @Valid User user) {
 		User createdUser = service.save(user);
 		URI uri = URI.create("/users/" + createdUser.getId());
 		
@@ -55,7 +55,7 @@ public class UserApi {
 	}
 	
 	@PostMapping("/user_add")
-	public ResponseEntity<?> addUser(@RequestBody RequestUser requestUser){
+	public ResponseEntity<User> addUser(@RequestBody RequestUser requestUser){
 		Role rolei = roleRepository.findById(requestUser.getRoleId()).get();
 		Manager manager = managerRepository.findByEmpId(requestUser.getManagerEmpId());
 		Reviewer reviewer = reviewerRepository.findByEmpId(requestUser.getReviewerEmpId());
@@ -74,19 +74,19 @@ public class UserApi {
 	}
 	
 	@PostMapping("/manager_add")
-	public ResponseEntity<?> createManager(@RequestBody Manager manager){
+	public ResponseEntity<Manager> createManager(@RequestBody Manager manager){
 		managerRepository.save(manager);
 		return ResponseEntity.ok(manager);
 	}
 	
 	@PostMapping("/reviewer_add")
-	public ResponseEntity<?> createManager(@RequestBody Reviewer reviewer){
+	public ResponseEntity<Reviewer> createReviewer(@RequestBody Reviewer reviewer){
 		reviewerRepository.save(reviewer);
 		return ResponseEntity.ok(reviewer);
 	}
 	
 	@PostMapping("/role_add")
-	public ResponseEntity<?> createRole(@RequestBody Role role){
+	public ResponseEntity<Role> createRole(@RequestBody Role role){
 		roleRepository.save(role);
 		return ResponseEntity.ok(role);
 	}
