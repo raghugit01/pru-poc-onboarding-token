@@ -17,10 +17,6 @@ public class Reviewer {
 	
 	private String reviewerName;
 
-	public Reviewer() {
-		super();
-	}
-
 	public String getEmpId() {
 		return empId;
 	}

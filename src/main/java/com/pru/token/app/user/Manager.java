@@ -17,8 +17,6 @@ public class Manager {
 	
 	private String managerName;
 
-	public Manager() {	}
-
 	public String getEmpId() {
 		return empId;
 	}
