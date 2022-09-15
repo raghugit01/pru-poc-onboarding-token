@@ -12,7 +12,8 @@ import lombok.NoArgsConstructor;
 @Data
 @Document(collection = "reviewer")
 public class Reviewer {
-
+	
+	@Id
 	private String empId;
 	
 	private String reviewerName;

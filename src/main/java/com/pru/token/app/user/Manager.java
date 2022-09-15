@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 @Document(collection = "manager")
 public class Manager {
 	
+	@Id
 	private String empId;
 	
 	private String managerName;
