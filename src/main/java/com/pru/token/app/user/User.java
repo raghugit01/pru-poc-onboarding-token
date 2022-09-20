@@ -20,6 +20,7 @@ import lombok.ToString;
 @Document(collection = "user")
 public class User implements UserDetails {
 	
+	@Id
 	private String id;
 	
 	private String email;
