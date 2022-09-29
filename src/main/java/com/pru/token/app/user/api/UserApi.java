@@ -105,4 +105,9 @@ public class UserApi {
 	public List<Reviewer> getReviewers(){
 		return reviewerRepository.findAll();
 	}
+	
+	@GetMapping("/users_get")
+	public List<User> getUsers(){
+		return userRepository.findAll();
+	}
 }
