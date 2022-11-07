@@ -12,6 +12,16 @@ spring:
   config:
         activate:
             on-profile: dev
+        import: optional:configserver:http://10.5.0.9:9296/
+
+management:
+  endpoint:
+    restart:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
 #eureka:
 #  instance:
