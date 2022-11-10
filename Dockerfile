@@ -1,5 +1,6 @@
 #cmd : docker build -t token-service .
-FROM openjdk:8
+FROM eclipse-temurin:8-jdk-alpine
 EXPOSE 9099
-ADD target/token-service.jar token-service.jar
+VOLUME /tmp
+COPY target/*.jar token-service.jar
 ENTRYPOINT ["java","-jar","/token-service.jar"]
