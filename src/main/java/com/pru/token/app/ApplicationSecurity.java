@@ -3,6 +3,7 @@ package com.pru.token.app;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -26,6 +27,9 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
 	@Autowired private UserRepository userRepo;
 	
 	@Autowired private JwtTokenFilter jwtTokenFilter;
+	
+	@Value("${skill.service.url}")
+	private String skillServiceUrl;
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
