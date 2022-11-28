@@ -24,6 +24,18 @@ public class RequestUser {
 	private String password;
 	
 	private String roleId;
+	
+	public RequestUser(String email, String employeeId, String reviewerEmpId, String managerEmpId, String userName,
+			String password, String roleId) {
+		super();
+		this.email = email;
+		this.employeeId = employeeId;
+		this.reviewerEmpId = reviewerEmpId;
+		this.managerEmpId = managerEmpId;
+		this.userName = userName;
+		this.password = password;
+		this.roleId = roleId;
+	}
 
 	public String getId() {
 		return id;
