@@ -45,6 +45,18 @@ public class User implements UserDetails {
 	
 	private Manager manager;
 	
+	public User(String email, String employeeId, String userName, String password, Role role, Reviewer reviewer,
+			Manager manager) {
+		super();
+		this.email = email;
+		this.employeeId = employeeId;
+		this.userName = userName;
+		this.password = password;
+		this.role = role;
+		this.reviewer = reviewer;
+		this.manager = manager;
+	}
+
 	public String getId() {
 		return id;
 	}
