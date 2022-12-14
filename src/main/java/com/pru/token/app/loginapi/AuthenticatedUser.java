@@ -9,6 +9,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import com.pru.token.app.jwt.JwtTokenUtil;
+import com.pru.token.app.user.LogoutUserToken;
+import com.pru.token.app.user.LogoutUserTokenRepository;
 import com.pru.token.app.user.User;
 import com.pru.token.app.user.UserRepository;
 
@@ -23,6 +25,9 @@ public class AuthenticatedUser {
 	
 	@Autowired
 	private UserRepository repository;
+	
+	@Autowired
+	private LogoutUserTokenRepository logoutUserRepo;
 
 	public LoginUserResponse getUser(LoginUserRequest req) {
 		Optional<User> optional=repository.findByEmployeeId(req.getEmpId());
@@ -45,6 +50,11 @@ public class AuthenticatedUser {
 				response.setRole(user.getRole().getName());
 				response.setToken(accessToken);
 				response.setUserId(user.getEmployeeId());				
+				LogoutUserToken logoutUserToken = new LogoutUserToken();
+				logoutUserToken.setLogout(false);
+				logoutUserToken.setToken(accessToken);
+				LogoutUserToken out= logoutUserRepo.save(logoutUserToken);
+				System.out.println("in out : "+out.getToken()+" , isout "+out.isLogout()+" , tid "+out.getTId());
 			}catch (Exception e) {
 				System.out.println("in exception "+e.getMessage());
 			}
